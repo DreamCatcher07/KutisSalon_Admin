@@ -1,0 +1,27 @@
+/* Add the same styles as reservation.html */
+.bg-tan-100 {
+    background-color: #F5F5DC;
+  }
+  
+  .bg-tan-200 {
+    background-color: #D2B48C;
+  }
+  
+  .bg-tan-300 {
+    background-color: #A0522D;
+  }
+  
+  .text-tan-500 {
+    color: #786C3B;
+  }
+  
+  .text-tan-600 {
+    color: #452B1F;
+  }
+  
+  .fixed-bottom {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
+  }

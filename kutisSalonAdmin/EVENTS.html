@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Inspiration</title>
+    <link rel="stylesheet" href="oi.css"> 
+</head>
+<body>
+
+    <div class="container">
+        <h1>Are you OK today?</h1>
+
+        <div class="button-container">
+            <button id="yesButton">Yes</button>
+            <button id="noButton">No</button>
+        </div>
+
+        <div class="quote" id="quote">How are you feeling?</div>
+
+        <h2>Type your thoughts:</h2>
+        <input type="text" id="inputBox" placeholder="What's on your mind?">
+        <p id="keyPressed">Key pressed: </p>
+
+        <h2>Submit your mood</h2>
+        <form id="moodForm">
+            <input type="text" id="moodInput" placeholder="Enter your mood">
+            <button type="submit">Submit</button>
+        </form>
+
+        <h3>Click on a quote you like:</h3>
+        <ul id="quoteList">
+            <li>Believe in yourself!</li>
+            <li>You are stronger than you think.</li>
+            <li>Every day is a new beginning.</li>
+        </ul>
+    </div>
+
+    <script>
+        
+        document.getElementById("yesButton").addEventListener("click", function() {
+            document.getElementById("quote").innerText = "Great! Keep shining!";
+            document.getElementById("yesButton").style.backgroundColor = "#4CAF50"; 
+        });
+
+        document.getElementById("noButton").addEventListener("click", function() {
+            document.getElementById("quote").innerText = "It's okay. Stay positive!";
+            document.getElementById("noButton").style.backgroundColor = "#f44336"; 
+        });
+
+        // Keydown event for input box
+        document.getElementById("inputBox").addEventListener("keydown", function(event) {
+            document.getElementById("keyPressed").innerText = "Key pressed: " + event.key;
+        });
+
+        // Form submission event
+        document.getElementById("moodForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const mood = document.getElementById("moodInput").value;
+            document.getElementById("quote").innerText = mood ? `Thanks for sharing your mood: ${mood}` : "Please enter your mood!";
+        });
+
+        // Event delegation for clicking list items
+        document.getElementById("quoteList").addEventListener("click", function(event) {
+            if (event.target.tagName === "LI") {
+                document.getElementById("quote").innerText = "You chose: " + event.target.textContent;
+                event.target.style.backgroundColor = "#FFD700"; // 
+            }
+        });
+    </script>   
+
+</body>
+</html>

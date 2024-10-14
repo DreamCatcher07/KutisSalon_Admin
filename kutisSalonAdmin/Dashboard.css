@@ -1,0 +1,120 @@
+  body {
+            font-family: Arial, sans-serif;
+            background-color: #f8d7d4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            display:flex;
+            height: 100vh;
+        }
+        .sidebar {
+            width: 20%;
+            background-color: #f4bfbf;
+            padding: 20px;
+            box-sizing: border-box;
+            border-right: 2px solid #d1a3a4;
+        }
+        .sidebar img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: block;
+            margin: 0 auto;
+        }
+        .sidebar .menu {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+        .sidebar .menu li {
+            margin: 20px 0;
+            font-size: 18px;
+        }
+        .sidebar .menu li a {
+            text-decoration: none;
+            color: #000;
+            margin-left: 6%;
+            padding-right: 5%;
+        }
+        .sidebar .menu li a:hover {
+            color: #ff6f61;
+        }
+        .sidebar .logout {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            font-size: 18px;
+        }
+        .main-content {
+                display: flex; /* Use flexbox for side-by-side layout */
+                justify-content: space-between; /* Add space between chart and table */
+                align-items: flex-start; /* Align items at the start */
+                padding: 20px;
+                box-sizing: border-box;
+        }
+        .main-content h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        .chart {
+            background-color: #f4bfbf;
+            padding: 20px;
+            border-radius: 10px;
+            width: 40%;
+            float: left;
+        }
+        .chart img {
+            width: 100%;
+            height: auto;
+        }
+        .chart ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+        .chart ul li {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+        .chart ul li span {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+        .chart ul li .hair-dye { background-color: #ff6f61; }
+        .chart ul li .hair-cut { background-color: #ffb6b9; }
+        .chart ul li .make-up { background-color: #ff6f91; }
+        .chart ul li .manicure { background-color: #ff6f61; }
+        .chart ul li .spa { background-color: #ffb6b9; }
+        .chart ul li .eyelash { background-color: #ff6f91; }
+        .table {
+            margin-left: 0;
+
+        }
+        .table table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2%;
+        }
+        .table th, .table td {
+            border: 1px solid #d1a3a4;
+            padding: 10px;
+            text-align: center;
+        }   
+        .table th {
+            background-color: #ffb6b9;
+            font-size: 18px;
+        }
+        .table td {
+            background-color: #ffe5e5;
+            font-size: 16px;
+        }
+
+        .title{
+            display:flexbox;
+            height: 100%;
+        }
+        

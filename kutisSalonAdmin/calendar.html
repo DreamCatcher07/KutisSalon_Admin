@@ -1,0 +1,208 @@
+<html>
+  <head>
+    <title>Calendar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+    <link href="calendar.css" rel="stylesheet"/>
+    <style>
+      /* Add the same font family and background color as reservation.html */
+      body {
+        font-family: 'Roboto', sans-serif;
+        background-color: #F5F5DC;
+      }
+      
+      /* Style table rows on hover */
+      #calendar-table tr:hover {
+        background-color: #ccc;
+      }
+    </style>
+  </head>
+  <body class="flex flex-col min-h-screen">
+    <!-- Main Content -->
+    <div class="flex-grow p-6">
+      <h1 class="text-4xl font-bold mb-6 text-tan-600">CALENDAR</h1>
+      <div class="flex flex-wrap">
+        <!-- Table and Buttons -->
+        <div class="w-full md:w-3/4 p-6 bg-tan-200 rounded-lg">
+          <div class="flex justify-between mb-4">
+            <button id="prev-week" class="bg-tan-300 text-tan-100 py-2 px-4 rounded">
+              <i class="fas fa-chevron-left mr-2"></i> Previous Week
+            </button>
+            <div id="current-date" class="text-2xl text-tan-600"></div>
+            <button id="next-week" class="bg-tan-300 text-tan-100 py-2 px-4 rounded">
+              Next Week <i class="fas fa-chevron-right ml-2"></i>
+            </button>
+          </div>
+          <table id="calendar-table" class="w-full text-center border">
+            <thead>
+              <tr>
+                <th class="p-2 bg-tan-300 text-tan-100">Time</th>
+                <th class="p-2 bg-tan-300 text-tan-100">Sunday</th>
+                <th class="p-2 bg-tan-300 text-tan-100">Monday</th>
+                <th class="p-2 bg-tan-300 text-tan-100">Tuesday</th>
+                <th class="p-2 bg-tan-300 text-tan-100">Wednesday</th>
+                <th class="p-2 bg-tan-300 text-tan-100">Thursday</th>
+                <th class="p-2 bg-tan-300 text-tan-100">Friday</th>
+                <th class="p-2 bg-tan-300 text-tan-100">Saturday</th>
+              </tr>
+            </thead>
+            <tbody id="calendar-body">
+              <!-- Table rows will be generated dynamically -->
+            </tbody>
+          </table>
+        </div>
+        <!-- Buttons -->
+        <div class="w-full md:w-1/4 p-6">
+          <button id="add-row" class="bg-tan-300 text-tan-100 py-2 px-4 rounded w-full mb-4">
+            <i class="fas fa-plus-circle mr-2"></i> Add Row
+          </button>
+          <button id="delete-row" class="bg-tan-300 text-tan-100 py-2 px-4 rounded w-full mb-4">
+            <i class="fas fa-trash-alt mr-2"></i> Delete Row
+          </button>
+          <button id="save-changes" class="bg-tan-300 text-tan-100 py-2 px-4 rounded w-full">
+            <i class="fas fa-save mr-2"></i> Save Changes
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Bottom Navigation -->
+    <div class="fixed-bottom bg-tan-300 p-4 flex justify-around items-center">
+      <!-- Same navigation as reservation.html -->
+      <a href="dashboard.html" class="text-center">
+        <i class="fas fa-tachometer-alt text-2xl"></i>
+        <div class="text-sm">DASHBOARD</div>
+      </a>
+      <a href="reservation.html" class="text-center">
+        <i class="fas fa-calendar-check text-2xl"></i>
+        <div class="text-sm">RESERVATION</div>
+      </a>
+      <a href="services.html" class="text-center">
+        <i class="fas fa-concierge-bell text-2xl"></i>
+        <div class="text-sm">SERVICES</div>
+ </a>
+      <a href="calendar.html" class=" text-center text-tan-600">
+        <i class="fas fa-calendar-alt text-2xl"></i>
+        <div class="text-sm">CALENDAR</div>
+      </a>
+
+      <a href="customer.html" class="text-center">
+        <i class="fas fa-user text-2xl"></i>
+        <div class="text-sm">CUSTOMER</div>
+    </a>
+
+    <a href="setting.html" class="text-center">
+      <i class="fas fa-cog text-2xl"></i>
+      <div class="text-sm">SETTINGS</div>
+    </a>
+    <a href="loginkineme.html" class="text-center">
+        <i class="fas fa-sign-out-alt text-2xl"></i>
+        <div class="text-sm">Log Out</div>
+    </a>
+
+    </div>
+    <script>
+      // Get the current date
+      const currentDate = new Date();
+      const currentWeek = getWeek(currentDate);
+      const currentDay = currentDate.getDay();
+      const currentMonth = currentDate.getMonth();
+      const currentYear = currentDate.getFullYear();
+      
+      // Display the current date
+      document.getElementById("current-date").innerHTML = `Week ${currentWeek} - ${getMonthName(currentMonth)} ${currentYear}`;
+      
+      // Function to get the week number
+      function getWeek(date) {
+        const onejan = new Date(date.getFullYear(), 0, 1);
+        return Math.ceil((((date - onejan) / 86400000) + onejan.getDay() + 1) / 7);
+      }
+      
+      // Function to get the month name
+      function getMonthName(month) {
+        const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        return months[month];
+      }
+      
+      // Function to generate the calendar table
+      function generateCalendarTable(week, year) {
+        const tableBody = document.getElementById("calendar-body");
+        tableBody.innerHTML = "";
+        
+        // Generate the table rows
+        for (let i = 0; i < 24; i++) {
+          const row = document.createElement("tr");
+          row.innerHTML = `
+            <td class="p-2 bg-tan-200">${i}:00</td>
+            <td class="p-2 bg-tan-200">Event 1</td>
+            <td class="p-2 bg-tan-200">Event 2</td>
+            <td class="p-2 bg-tan-200">Event 3</td>
+            <td class="p-2 bg-tan-200">Event 4</td>
+            <td class="p-2 bg-tan-200">Event 5</td>
+            <td class="p-2 bg-tan-200">Event 6</td>
+            <td class="p-2 bg-tan-200">Event 7</td>
+          `;
+          tableBody.appendChild(row);
+        }
+      }
+      
+      // Generate the calendar table for the current week
+      generateCalendarTable(currentWeek, currentYear);
+      
+      // Add event listeners to the previous and next week buttons
+      document.getElementById("prev-week").addEventListener("click", () => {
+        const prevWeek = currentWeek - 1;
+        const prevYear = currentYear;
+        if (prevWeek < 1) {
+          prevYear -= 1;
+          prevWeek = 52;
+        }
+        generateCalendarTable(prevWeek, prevYear);
+        document.getElementById("current-date").innerHTML = `Week ${prevWeek} - ${getMonthName(currentMonth)} ${prevYear}`;
+      });
+      
+      document.getElementById("next-week").addEventListener("click", () => {
+        const nextWeek = currentWeek + 1;
+        const nextYear = currentYear;
+        if (nextWeek > 52) {
+          nextYear += 1;
+          nextWeek = 1;
+        }
+        generateCalendarTable(nextWeek, nextYear);
+        document.getElementById("current-date").innerHTML = `Week ${nextWeek} - ${getMonthName(currentMonth)} ${nextYear}`;
+      });
+      
+      // Add event listener to the add row button
+      document.getElementById("add-row").addEventListener("click", () => {
+        const tableBody = document.getElementById("calendar-body");
+        const newRow = document.createElement("tr");
+        newRow.innerHTML = `
+          <td class="p-2 bg-tan-200"></td>
+          <td class="p-2 bg-tan-200"></td>
+          <td class="p-2 bg-tan-200"></td>
+          <td class="p-2 bg-tan-200"></td>
+          <td class="p-2 bg-tan-200"></td>
+          <td class="p-2 bg-tan-200"></td>
+          <td class="p-2 bg-tan-200"></td>
+          <td class="p-2 bg-tan-200"></td>
+        `;
+        tableBody.appendChild(newRow);
+      });
+      
+      // Add event listener to the delete row button
+      document.getElementById("delete-row").addEventListener("click", () => {
+        const tableBody = document.getElementById("calendar-body");
+        const rows = tableBody.rows;
+        if (rows.length > 0) {
+          tableBody.removeChild(rows[rows.length - 1]);
+        }
+      });
+      
+      // Add event listener to the save changes button
+      document.getElementById("save-changes").addEventListener("click", () => {
+        // TO DO: implement logic to save changes
+        console.log("Changes saved!");
+      });
+    </script>
+  </body>
+</html>

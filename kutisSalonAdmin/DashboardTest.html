@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservation System</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+        .flex-display {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .chart {
+            flex: 1;
+            min-width: 300px; /* Minimum width for the chart */
+            text-align: center;
+            margin-right: 20px; /* Space between chart and table */
+            margin-bottom: 20px; /* Space below the chart */
+        }
+        .table-container {
+            flex: 2; /* Take up more space than the chart */
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+        table {
+            min-width: 600px;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div class="container">
+        <h1 class="text-2xl font-bold mb-4">Reservation System</h1>
+
+        <!-- Flex Container for Chart and Table -->
+        <div class="flex-display">
+            <!-- Pie Chart -->
+            <div class="chart">
+                <h2 class="text-xl font-semibold mb-2">Service Usage Chart</h2>
+                <img src="pie_chart.png" alt="Pie Chart" style="max-width: 400px; height: auto;">
+            </div>
+
+            <!-- Table -->
+            <div class="table-container">
+                <h2 class="text-xl font-semibold mb-2">Services Overview</h2>
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead>
+                            <tr>
+                                <th class="p-2 bg-gray-200">Service</th>
+                                <th class="p-2 bg-gray-200">Total</th>
+                                <th class="p-2 bg-gray-200">Last Week</th>
+                                <th class="p-2 bg-gray-200">Last Month</th>
+                                <th class="p-2 bg-gray-200">Last 3 Months</th>
+                                <th class="p-2 bg-gray-200">Last 6 Months</th>
+                                <th class="p-2 bg-gray-200">Last Year</th>
+                                <th class="p-2 bg-gray-200">All Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="p-2 bg-pink-100">Hair Cut</td>
+                                <td class="p-2 bg-pink-100">30</td>
+                                <td class="p-2 bg-pink-100">5</td>
+                                <td class="p-2 bg-pink-100">8</td>
+                                <td class="p-2 bg-pink-100">7</td>
+                                <td class="p-2 bg-pink-100">4</td>
+                                <td class="p-2 bg-pink-100">3</td>
+                                <td class="p-2 bg-pink-100">3</td>
+                            </tr>
+                            <tr>
+                                <td class="p-2 bg-pink-100">Hair Dye</td>
+                                <td class="p-2 bg-pink-100">20</td>
+                                <td class="p-2 bg-pink-100">6</td>
+                                <td class="p-2 bg-pink-100">4</td>
+                                <td class="p-2 bg-pink-100">3</td>
+                                <td class="p-2 bg-pink-100">1</td>
+                                <td class="p-2 bg-pink-100">2</td>
+                                <td class="p-2 bg-pink-100">4</td>
+                            </tr>
+                            <tr>
+                                <td class="p-2 bg-pink-100">Make Up</td>
+                                <td class="p-2 bg-pink-100">15</td>
+                                <td class="p-2 bg-pink-100">2</td>
+                                <td class="p-2 bg-pink-100">3</td>
+                                <td class="p-2 bg-pink-100">4</td>
+                                <td class="p-2 bg-pink-100">1</td>
+                                <td class="p-2 bg-pink-100">2</td>
+                                <td class="p-2 bg-pink-100">3</td>
+                            </tr>
+                            <tr>
+                                <td class="p-2 bg-pink-100">Manicure</td>
+                                <td class="p-2 bg-pink-100">25</td>
+                                <td class="p-2 bg-pink-100">4</td>
+                                <td class="p-2 bg-pink-100">5</td>
+                                <td class="p-2 bg-pink-100">6</td>
+                                <td class="p-2 bg-pink-100">4</td>
+                                <td class="p-2 bg-pink-100">3</td>
+                                <td class="p-2 bg-pink-100">3</td>
+                            </tr>
+                            <tr>
+                                <td class="p-2 bg-pink-100">Eyelash</td>
+                                <td class="p-2 bg-pink-100">10</td>
+                                <td class="p-2 bg-pink-100">1</td>
+                                <td class="p-2 bg-pink-100">2</td>
+                                <td class="p-2 bg-pink-100">3</td>
+                                <td class="p-2 bg-pink-100">2</td>
+                                <td class="p-2 bg-pink-100">1</td>
+                                <td class="p-2 bg-pink-100">1</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="buttons flex justify-around mt-4">
+            <button class="add bg-blue-500 text-white p-2 rounded">ADD</button>
+            <button class="delete bg-red-500 text-white p-2 rounded">DELETE</button>
+            <button class="save bg-green-500 text-white p-2 rounded">SAVE</button>
+        </div>
+    </div>
+</body>
+</html>
