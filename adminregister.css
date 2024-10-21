@@ -1,0 +1,128 @@
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url(img/salon-image.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.admin {
+    width: 420px;
+    background: rgba(210, 180, 140, 0.888);
+    color: white;
+    border-radius: 10px;
+    padding: 30px 40px;
+}
+
+.admin h1{
+    font-size: 36px;
+    text-align: center;
+}
+
+.admin form .error-msg{
+    margin: 10px 0;
+    display: block;
+    background: #f48585;
+    color: #fff;
+    border-radius: 5%;
+    font-size: 20px;
+}
+
+
+.admin .input-box{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+}
+
+.input-box input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(255, 255, 255, 2);
+    border-radius: 40px;
+    font-size: 16px;
+    color: #fff;
+    padding: 20px 45px 20px 20px;
+}
+
+.input-box input::placeholder{
+    color: #fff;
+}
+
+.input-box i{
+    position: absolute;
+    right: 20px;
+    top: 31%;
+    transform: translate(-50%);
+    font-size: 20px;
+}
+
+.admin .remember-forgot{
+    display: flex;
+    justify-content: space-between;
+    font-size: 14.5px;
+    margin: -15px 0 15px;
+}
+
+.remember-forgot label input{
+    accent-color: #fff;
+    margin-right: 3px;
+}
+
+.remember-forgot a{
+    color: #fff;
+    text-decoration: none;
+}
+
+.remember-forgot a:hover{
+    text-decoration: underline;
+}
+
+.admin .btn{
+    width: 100%;
+    height: 45px;
+    background: rgba(223, 171, 0, 0.897);
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
+}
+
+.admin .btn a{
+    text-decoration: none;
+    color: black;
+}
+
+.admin .login-link{
+    font-size: 14.5px;
+    text-align: center;
+    margin-top: 25px;
+}
+
+.login-link p a{
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-link p a:hover{
+    text-decoration: underline;
+}
